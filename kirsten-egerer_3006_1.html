@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirsten Egerer · Psychotherapie für Kinderwunsch | Mainz & Online</title>
+<meta name="description" content="Kirsten Egerer — approbierte Psychologische Psychotherapeutin in Mainz, spezialisiert auf psychologische Begleitung in der Kinderwunschzeit. Praxis vor Ort & online.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kirsten Egerer · Psychotherapie für Kinderwunsch">
+<meta property="og:description" content="Psychologische Begleitung in der Kinderwunschzeit — Praxis in Mainz und online.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===========================================================
+     TOKENS — 1:1 aus dem Styleguide übernommen
+  =========================================================== */
+  :root{
+    /* Hintergrund — Ton: Ivory */
+    --bg: #FBF9F4;
+    --bg2: #F4F0E8;
+    --bg3: #EBE5D8;
+    --paper: #FFFFFF;
+
+    /* Schrift & Linien */
+    --ink: #1A1A17;
+    --ink-soft: #454238;
+    --text: #6A6659;
+    --muted: #9D978B;
+    --line: rgba(26,26,23,0.09);
+    --line-soft: rgba(26,26,23,0.04);
+    --line-strong: rgba(26,26,23,0.22);
+
+    /* Akzent — Salbei */
+    --accent: #6B7A5A;
+    --accent-deep: #4E5B41;
+    --accent-soft: #9AA68B;
+    --accent-tint: #E2E5D9;
+
+    /* Typografie */
+    --display: 'Manrope', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --display-w: 500;
+
+    /* Layout */
+    --container: 1480px;
+    --gutter: 64px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body{
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.55;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,h4,p,a,span,li{
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  section[id]{ scroll-margin-top: 80px; }
+
+  ::selection{ background: var(--accent); color: var(--paper); }
+
+  img{ max-width:100%; display:block; }
+
+  .container{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  @media (max-width: 980px){
+    .container{ padding: 0 32px; }
+  }
+
+  h1,h2,h3,h4{
+    font-family: var(--display);
+    font-weight: var(--display-w);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  /* ===========================================================
+     EYEBROW
+  =========================================================== */
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    display:inline-block;
+  }
+
+  /* ===========================================================
+     BUTTONS — Pillen, 3 Varianten, 3 Größen
+  =========================================================== */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-family: var(--body);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn--sm{ padding: 10px 18px; font-size: 12px; }
+  .btn--md{ padding: 14px 24px; font-size: 13px; }
+  .btn--lg{ padding: 18px 32px; font-size: 14px; }
+
+  .btn--primary{ background: var(--accent); color: var(--paper); }
+  .btn--primary:hover{ background: var(--accent-deep); }
+
+  .btn--secondary{ background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn--secondary:hover{ border-color: var(--accent); color: var(--accent-deep); }
+
+  .btn--ghost{ background: transparent; color: var(--accent-deep); padding-left: 4px; padding-right: 4px; }
+  .btn--ghost:hover{ color: var(--accent); }
+
+  .btn-row{ display:flex; gap: 16px; flex-wrap: wrap; align-items:center; }
+
+  /* ===========================================================
+     HEADER / NAVIGATION
+  =========================================================== */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251,249,244,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-grid{
+    display:grid;
+    grid-template-columns: 1fr auto auto;
+    align-items:center;
+    gap: 32px;
+    padding: 18px 0;
+  }
+
+  .wordmark{
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: var(--display-w);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .nav-links{
+    display:flex;
+    gap: 32px;
+    list-style:none;
+  }
+  .nav-links a{
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover{ color: var(--accent); }
+
+  .nav-cta{
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--paper);
+    transition: background 0.2s ease;
+  }
+  .nav-cta:hover{ background: var(--accent-deep); }
+
+  .burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 8px;
+  }
+  .burger span{
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    display:block;
+    transition: all 0.25s ease;
+  }
+  .burger.open span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px var(--gutter);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .mobile-menu .nav-cta{ margin: 16px var(--gutter) 20px; text-align:center; }
+
+  @media (max-width: 880px){
+    .nav-links{ display:none; }
+    .nav-grid .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    .nav-grid{ grid-template-columns: 1fr auto; }
+  }
+  @media (max-width: 980px){
+    .mobile-menu a, .mobile-menu .nav-cta{ padding-left: 32px; padding-right: 32px; }
+  }
+
+  /* ===========================================================
+     SECTION / LAYOUT
+  =========================================================== */
+  section{ padding: 120px 0; }
+  @media (max-width: 980px){ section{ padding: 80px 0; } }
+  @media (max-width: 600px){ section{ padding: 64px 0; } }
+
+  .section--alt{ background: var(--bg2); }
+  .section--dark{ background: var(--accent-deep); color: var(--accent-tint); }
+  .section--dark .eyebrow{ color: var(--accent-soft); }
+  .section--dark .eyebrow::before{ background: var(--accent-soft); }
+  .section--dark h2{ color: var(--paper); }
+  .section--dark .accent-word{ color: var(--accent-soft); }
+
+  .head-row{
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 760px){
+    .head-row{ grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  h2{ font-size: clamp(36px, 4.4vw, 56px); }
+
+  .accent-word{ color: var(--accent); font-style: italic; }
+
+  /* image placeholder */
+  .ph{
+    position: relative;
+    border-radius: 4px;
+    overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg, transparent, transparent 8px, rgba(26,26,23,0.035) 8px, rgba(26,26,23,0.035) 9px),
+      linear-gradient(135deg, var(--bg3), var(--accent-tint));
+    display:flex;
+    align-items:flex-end;
+    min-height: 220px;
+  }
+  .ph-label{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: rgba(255,255,255,0.55);
+    padding: 8px 14px;
+    margin: 14px;
+    border-radius: 3px;
+  }
+
+  /* ===========================================================
+     HERO
+  =========================================================== */
+  .hero{ padding-top: 72px; padding-bottom: 110px; }
+  .hero .eyebrow{ justify-content:flex-start; }
+  .hero h1{ font-size: clamp(64px, 9vw, 132px); max-width: 14ch; }
+  @media (max-width: 520px){
+    .hero h1{ font-size: clamp(40px, 11vw, 64px); }
+  }
+  .hero .ph{ margin: 56px 0; aspect-ratio: 16/8; min-height: 280px; }
+  .hero-bottom{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items:start;
+  }
+  .hero-bottom p{ font-size: 18px; line-height: 1.7; color: var(--ink-soft); max-width: 46ch; }
+  .stats{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  .stat-num{
+    font-family: var(--display);
+    font-weight: var(--display-w);
+    font-size: clamp(28px, 3vw, 38px);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .stat-label{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  @media (max-width: 760px){
+    .hero-bottom{ grid-template-columns: 1fr; gap: 36px; }
+    .stats{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===========================================================
+     MEINE GESCHICHTE — Portrait + Text (5fr/7fr)
+  =========================================================== */
+  .story-grid{
+    display:grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items:start;
+  }
+  .story-grid .ph{ aspect-ratio: 4/5; }
+  .story-text p{ margin-bottom: 22px; max-width: 56ch; }
+  .quote{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.4;
+    color: var(--accent-deep);
+    border-left: 2px solid var(--accent);
+    padding-left: 28px;
+    margin: 36px 0;
+    letter-spacing: -0.01em;
+  }
+  .quali-list{
+    list-style:none;
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .quali-list li{
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    padding-left: 22px;
+  }
+  .quali-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top: 21px;
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--accent);
+  }
+  @media (max-width: 880px){
+    .story-grid{ grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* ===========================================================
+     PHILOSOPHIE — Pillars (repeat(3,1fr))
+  =========================================================== */
+  .pillars{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .pillar-num{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    display:block;
+  }
+  .pillar h3{ font-size: clamp(20px,2vw,24px); margin-bottom: 14px; letter-spacing: -0.02em; }
+  .pillar p{ font-size: 14.5px; line-height: 1.7; max-width: 38ch; }
+  @media (max-width: 880px){
+    .pillars{ grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ===========================================================
+     PRAXIS — Vor Ort / Online (2 Karten)
+  =========================================================== */
+  .praxis-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .praxis-card .ph{ aspect-ratio: 4/3; margin-bottom: 28px; }
+  .praxis-card .eyebrow{ margin-bottom: 10px; }
+  .praxis-card h3{ font-size: clamp(22px,2.4vw,28px); margin-bottom: 14px; letter-spacing: -0.025em; }
+  .praxis-card p{ font-size: 14.5px; line-height: 1.7; max-width: 42ch; }
+  @media (max-width: 760px){
+    .praxis-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ===========================================================
+     LEISTUNGEN — Karten
+  =========================================================== */
+  .leistungen-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .leistung-card{
+    background: var(--paper);
+    padding: 40px;
+  }
+  .leistung-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom: 18px;
+  }
+  .leistung-index{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .leistung-card h3{ font-size: clamp(19px,2vw,22px); letter-spacing: -0.02em; margin-bottom: 12px; }
+  .leistung-card p{ font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+  .leistung-meta{
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  @media (max-width: 760px){
+    .leistungen-grid{ grid-template-columns: 1fr; }
+    .leistung-card{ padding: 28px 24px; }
+  }
+
+  /* ===========================================================
+     SPEAKER — dunkler Abschnitt
+  =========================================================== */
+  .themen-list{ list-style:none; }
+  .themen-list li{
+    display:flex;
+    align-items:baseline;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 17px;
+    color: var(--paper);
+  }
+  .themen-list li:first-child{ border-top: 1px solid rgba(255,255,255,0.12); }
+  .themen-list li span:last-child{ flex: 1; min-width: 0; }
+  .themen-num{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent-soft);
+    flex-shrink:0;
+  }
+  .section--dark .btn-row{ margin-top: 40px; }
+  .section--dark .btn--secondary{ border-color: rgba(255,255,255,0.3); color: var(--paper); }
+  .section--dark .btn--secondary:hover{ border-color: var(--accent-soft); color: var(--accent-soft); }
+
+  /* ===========================================================
+     ABLAUF & KOSTEN
+  =========================================================== */
+  .ablauf-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 96px;
+  }
+  .ablauf-num{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    display:block;
+  }
+  .ablauf-card h3{ font-size: 18px; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .ablauf-card p{ font-size: 13.5px; line-height: 1.65; }
+  @media (max-width: 880px){
+    .ablauf-grid{ grid-template-columns: 1fr 1fr; gap: 36px 28px; }
+  }
+  @media (max-width: 560px){
+    .ablauf-grid{ grid-template-columns: 1fr; }
+  }
+
+  .kosten-wrap{
+    display:grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 64px;
+    align-items:start;
+    border-top: 1px solid var(--line);
+    padding-top: 56px;
+  }
+  .kosten-wrap h3{ font-size: clamp(24px,2.6vw,30px); margin-bottom: 16px; }
+  .kosten-wrap > div:first-child p{ font-size: 14.5px; line-height: 1.7; }
+  .kosten-table{ width:100%; border-collapse: collapse; table-layout: fixed; }
+  .kosten-table tr{ border-bottom: 1px solid var(--line); }
+  .kosten-table tr:first-child{ border-top: 1px solid var(--line); }
+  .kosten-table td{ padding: 18px 4px; font-size: 14.5px; color: var(--ink-soft); }
+  .kosten-table td:last-child{
+    text-align:right;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent-deep);
+    white-space:nowrap;
+  }
+  @media (max-width: 800px){
+    .kosten-wrap{ grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* ===========================================================
+     KONTAKT
+  =========================================================== */
+  .kontakt-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items:start;
+  }
+  .kontakt-grid h2{ margin-bottom: 22px; }
+  .kontakt-grid > div:first-child p{ font-size: 17px; line-height: 1.75; color: var(--ink-soft); max-width: 42ch; margin-bottom: 36px; }
+  .kontakt-info{ list-style:none; }
+  .kontakt-info li{
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .kontakt-info li:first-child{ border-top: 1px solid var(--line); }
+  .kontakt-label{
+    display:block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .kontakt-value{ font-size: 15.5px; color: var(--ink-soft); line-height: 1.6; }
+  @media (max-width: 880px){
+    .kontakt-grid{ grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  /* ===========================================================
+     FOOTER
+  =========================================================== */
+  footer{
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 64px 0 36px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap: 24px;
+    flex-wrap:wrap;
+    padding-bottom: 40px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  footer .wordmark{ color: var(--paper); font-size: clamp(28px,3vw,38px); }
+  .footer-meta{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-align:right;
+    line-height: 1.7;
+  }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-links{ display:flex; gap: 24px; list-style:none; }
+  .footer-links a:hover{ color: var(--accent-soft); }
+
+  /* fade-in on scroll */
+  .reveal{ opacity:0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-grid">
+    <a href="#start" class="wordmark">Kirsten Egerer</a>
+    <ul class="nav-links">
+      <li><a href="#geschichte">Über mich</a></li>
+      <li><a href="#philosophie">Philosophie</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#praxis">Praxis</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#geschichte">Über mich</a>
+    <a href="#philosophie">Philosophie</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#praxis">Praxis</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
+  </nav>
+</header>
+
+<main id="start">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Kirsten Egerer · Psychotherapie</div>
+      <h1>Psychologische Begleitung in der <span class="accent-word">Kinderwunschzeit.</span></h1>
+
+      <div class="ph reveal">
+        <span class="ph-label">Portrait — Kirsten Egerer · warmes Editorial-Portrait</span>
+      </div>
+
+      <div class="hero-bottom">
+        <p>Als approbierte Psychotherapeutin begleite ich Frauen und Paare durch die psychisch belastenden Phasen des Kinderwunschs — mit Erfahrung, Klarheit und einem geschützten Raum.</p>
+        <div class="stats">
+          <div>
+            <div class="stat-num">12+</div>
+            <div class="stat-label">Jahre klinische Erfahrung</div>
+          </div>
+          <div>
+            <div class="stat-num">400+</div>
+            <div class="stat-label">begleitete Frauen &amp; Paare</div>
+          </div>
+          <div>
+            <div class="stat-num">3K+</div>
+            <div class="stat-label">Therapiestunden insgesamt</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Standorte: Mainz &amp; Online</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 01 MEINE GESCHICHTE ================= -->
+  <section id="geschichte">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">01 Meine Geschichte</div>
+        <h2>Der Weg, der mich zu Ihnen führte.</h2>
+      </div>
+
+      <div class="story-grid">
+        <div class="ph reveal">
+          <span class="ph-label">Portrait — Kirsten, Praxis Mainz</span>
+        </div>
+        <div class="story-text">
+          <p>Ich bin Kirsten Egerer — approbierte Psychologische Psychotherapeutin mit langjähriger Erfahrung in der Begleitung von Frauen und Paaren auf ihrem Weg zum Wunschkind. Meine Arbeit ist geprägt von persönlicher Erfahrung: Ich weiß, wie es sich anfühlt, wenn Hoffnung und Enttäuschung im Wechsel wohnen.</p>
+          <p>Dieses tiefe Verständnis ist heute das Fundament meiner Praxis. Ich möchte Frauen nicht nur therapeutisch begleiten — ich möchte ihnen einen Ort geben, an dem sie wirklich gesehen werden. An dem das Unsichtbare Worte finden darf.</p>
+          <p>Jede Geschichte ist anders. Und doch gibt es etwas, das viele Frauen verbindet: das stille Ringen, das kaum jemand versteht, der es nicht selbst erlebt hat. Genau dort setzt meine Arbeit an.</p>
+
+          <div class="quote">„Jeder Mensch trägt die Ressourcen in sich, die er für seinen Weg braucht."</div>
+
+          <ul class="quali-list">
+            <li>Approbation als Psychologische Psychotherapeutin</li>
+            <li>Vertiefung in tiefenpsychologisch fundierter Therapie</li>
+            <li>Spezialisierung Kinderwunsch &amp; Reproduktionsmedizin</li>
+            <li>Mitglied im Berufsverband Deutscher Psychologinnen und Psychologen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 PHILOSOPHIE ================= -->
+  <section id="philosophie" class="section--alt">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">02 Philosophie</div>
+        <h2>Ein Raum, in dem Sie <span class="accent-word">atmen</span> dürfen.</h2>
+      </div>
+      <p style="max-width:60ch; margin-bottom:56px; font-size:15.5px;">Meine therapeutische Haltung ist getragen von drei Grundüberzeugungen — sie bestimmen, wie ich mit Ihnen arbeite und wie sich unsere gemeinsame Zeit anfühlen wird.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <h3>Echtes Verstehen</h3>
+          <p>Ich höre nicht nur, was Sie sagen — ich höre, was darunter liegt. Die Angst vor dem nächsten Zyklus. Die Erschöpfung nach Jahren der Hoffnung. Die Fragen, die Sie sich selbst nicht mehr zu stellen wagen.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <h3>Raum ohne Wertung</h3>
+          <p>Bei mir müssen Sie nichts erklären, nichts rechtfertigen, nichts beschönigen. Trauer, Wut, Scham, Sehnsucht — all das hat Platz. Genau so, wie Sie es mitbringen.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <h3>Ressourcen finden</h3>
+          <p>Sie haben mehr Kraft, als Sie gerade spüren. Gemeinsam finden wir Wege, wieder Zugang zu sich selbst zu finden — zu dem, was Ihnen Halt gibt und was Sie trägt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 PRAXIS ================= -->
+  <section id="praxis">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">03 Praxis</div>
+        <h2>Zwei Räume zum Ankommen.</h2>
+      </div>
+      <p style="max-width:62ch; margin-bottom:56px; font-size:15.5px;">Sie können zu mir kommen — oder ich komme zu Ihnen. Beide Wege sind gleichwertig, beide durchdacht. Gerade im Kinderwunsch-Kontext ist es oft wichtig, dass Therapie auch dann möglich bleibt, wenn der Weg in die Praxis gerade zu viel ist.</p>
+
+      <div class="praxis-grid">
+        <div class="praxis-card">
+          <div class="ph reveal"><span class="ph-label">Praxisraum — Mainz</span></div>
+          <div class="eyebrow">Vor Ort</div>
+          <h3>Die Praxis in Mainz</h3>
+          <p>Ein eigener Raum — ruhig gelegen, mit Tageslicht und Zeit. Hier dürfen Sie ankommen, ablegen, atmen. Nähere Angaben zu Anreise und Parkmöglichkeiten erhalten Sie nach Terminvereinbarung.</p>
+        </div>
+        <div class="praxis-card">
+          <div class="ph reveal"><span class="ph-label">Online-Sitzung — Bildschirm</span></div>
+          <div class="eyebrow">Online</div>
+          <h3>Videokonferenz — verschlüsselt · datenschutzkonform</h3>
+          <p>Wenn der Weg in die Praxis gerade nicht möglich ist — während einer Behandlung, nach einem Eingriff, an einem schweren Tag oder durch große Entfernung — begleite ich Sie auch online. Derselbe geschützte Raum, nur in einem anderen Format.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 LEISTUNGEN ================= -->
+  <section id="leistungen" class="section--alt">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">04 Leistungen</div>
+        <h2>Wie ich Sie <span class="accent-word">begleiten</span> kann.</h2>
+      </div>
+      <p style="max-width:60ch; margin-bottom:56px; font-size:15.5px;">Jede Situation ist einzigartig. Deshalb passe ich meine Begleitung immer genau an Ihre Lebenssituation und Ihre Themen an.</p>
+
+      <div class="leistungen-grid">
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">01 / 06</span></div>
+          <h3>Psychotherapie bei unerfülltem Kinderwunsch</h3>
+          <p>Einzel- oder Paartherapie während Kinderwunschbehandlung, nach Fehlgeburten oder bei medizinisch ungeklärter Unfruchtbarkeit.</p>
+          <div class="leistung-meta">Anzahl der Sitzungen individuell · Einzel oder Paar</div>
+        </div>
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">02 / 06</span></div>
+          <h3>Begleitung durch IVF / ICSI</h3>
+          <p>Psychologische Stabilisierung während Hormonbehandlung, Punktion, Transfer und den belastenden Wartezeiten dazwischen.</p>
+          <div class="leistung-meta">Intensive Phasenbegleitung · Termin-flexibel</div>
+        </div>
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">03 / 06</span></div>
+          <h3>Trauerbegleitung nach Fehlgeburt &amp; stiller Geburt</h3>
+          <p>Raum für einen Verlust, der in unserer Gesellschaft oft unsichtbar bleibt — mit der Würde, die dieser Trauer gebührt.</p>
+          <div class="leistung-meta">Einzeltermine · auch für Partner*innen</div>
+        </div>
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">04 / 06</span></div>
+          <h3>Entscheidungsfindung</h3>
+          <p>Wenn Sie vor der Frage stehen: Weitermachen? Pausieren? Loslassen? Adoption? — ich helfe Ihnen, Klarheit zu gewinnen.</p>
+          <div class="leistung-meta">Kurz- oder mittelfristig · strukturiert</div>
+        </div>
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">05 / 06</span></div>
+          <h3>Übergang in die Mutterschaft</h3>
+          <p>Eine Schwangerschaft nach langem Kinderwunsch ist selten nur Glück. Ich begleite durch die Ambivalenz dieser besonderen Zeit.</p>
+          <div class="leistung-meta">Während Schwangerschaft &amp; nach Geburt</div>
+        </div>
+        <div class="leistung-card">
+          <div class="leistung-top"><span class="leistung-index">06 / 06</span></div>
+          <h3>Leben ohne eigenes Kind</h3>
+          <p>Wenn der Weg anders verläuft als erhofft — ein neues Lebensnarrativ finden, ohne den Verlust kleinzureden.</p>
+          <div class="leistung-meta">Langfristige Begleitung möglich</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 SPEAKER ================= -->
+  <section id="speaker" class="section--dark">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">05 Speaker &amp; Vorträge</div>
+        <h2>Aufklärung, die <span class="accent-word">berührt.</span></h2>
+      </div>
+      <p style="max-width:60ch; margin-bottom:48px; font-size:15.5px; color: rgba(255,255,255,0.65);">Ich spreche auf Fachtagungen, Kongressen und in Unternehmen über die psychische Dimension von Kinderwunsch — ein Thema, das viel zu oft unter den Tisch fällt.</p>
+
+      <ul class="themen-list">
+        <li><span class="themen-num">01</span><span>Psychische Belastung in der Reproduktionsmedizin</span></li>
+        <li><span class="themen-num">02</span><span>Wenn Kinderwunsch zum Lebensthema wird</span></li>
+        <li><span class="themen-num">03</span><span>Fehlgeburten: Die unsichtbare Trauer</span></li>
+        <li><span class="themen-num">04</span><span>Kinderwunsch &amp; Partnerschaft</span></li>
+        <li><span class="themen-num">05</span><span>Betriebliche Gesundheit: Mitarbeiterinnen im Kinderwunsch</span></li>
+      </ul>
+
+      <div class="btn-row">
+        <a href="#kontakt" class="btn btn--secondary btn--md">Für Vorträge &amp; Interviews anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 ABLAUF & KOSTEN ================= -->
+  <section id="ablauf">
+    <div class="container">
+      <div class="head-row">
+        <div class="eyebrow">06 Ablauf &amp; Kosten</div>
+        <h2>Transparent — in <span class="accent-word">Ihrem Tempo.</span></h2>
+      </div>
+
+      <div class="ablauf-grid">
+        <div class="ablauf-card">
+          <span class="ablauf-num">01</span>
+          <h3>Erstkontakt</h3>
+          <p>Sie schreiben mir eine Nachricht. Ich melde mich innerhalb von 48 Stunden zurück mit einem Vorschlag für ein kurzes Vorgespräch.</p>
+        </div>
+        <div class="ablauf-card">
+          <span class="ablauf-num">02</span>
+          <h3>Kennenlerngespräch</h3>
+          <p>Ein 20-minütiges Telefonat, in dem Sie mir Ihr Anliegen schildern und wir prüfen, ob wir zueinander passen. Kostenfrei und unverbindlich.</p>
+        </div>
+        <div class="ablauf-card">
+          <span class="ablauf-num">03</span>
+          <h3>Probatorik</h3>
+          <p>Drei bis vier Erstsitzungen in meiner Praxis, in denen wir uns kennenlernen, Ihr Anliegen vertiefen und gemeinsam ein Vorgehen entwickeln.</p>
+        </div>
+        <div class="ablauf-card">
+          <span class="ablauf-num">04</span>
+          <h3>Therapie</h3>
+          <p>Regelmäßige Sitzungen — wöchentlich, zweiwöchentlich oder nach Bedarf. Dauer und Frequenz bestimmen wir gemeinsam.</p>
+        </div>
+      </div>
+
+      <div class="kosten-wrap">
+        <div>
+          <h3>Kosten &amp; Abrechnung</h3>
+          <p>Als Privatpraxis rechne ich mit privaten Krankenversicherungen und Beihilfestellen ab. Bei gesetzlicher Versicherung ist eine Selbstzahlung möglich. Gerne stelle ich Ihnen eine Rechnung zur eventuellen Einreichung aus.</p>
+        </div>
+        <table class="kosten-table">
+          <tr><td>Kennenlerngespräch (telefonisch, 20 min)</td><td>kostenfrei</td></tr>
+          <tr><td>Einzelsitzung (50 min)</td><td>140 €</td></tr>
+          <tr><td>Paarsitzung (80 min)</td><td>210 €</td></tr>
+          <tr><td>Online-Sitzung (50 min)</td><td>140 €</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 KONTAKT ================= -->
+  <section id="kontakt" class="section--alt">
+    <div class="container">
+      <div class="kontakt-grid">
+        <div>
+          <div class="eyebrow">07 Kontakt</div>
+          <h2>Wenn Sie bereit sind, schreiben Sie mir.</h2>
+          <p>Der erste Schritt ist oft der schwerste. Sie müssen jetzt noch keine Worte finden — ein kurzer Satz reicht. Ich melde mich innerhalb von 48 Stunden bei Ihnen.</p>
+          <div class="btn-row">
+            <a href="mailto:praxis@kirsten-egerer.de" class="btn btn--primary btn--lg">E-Mail schreiben</a>
+          </div>
+        </div>
+        <ul class="kontakt-info">
+          <li>
+            <span class="kontakt-label">E-Mail</span>
+            <span class="kontakt-value"><a href="mailto:praxis@kirsten-egerer.de">praxis@kirsten-egerer.de</a></span>
+          </li>
+          <li>
+            <span class="kontakt-label">Praxis</span>
+            <span class="kontakt-value">Hindenburgstraße 56<br>55118 Mainz</span>
+          </li>
+          <li>
+            <span class="kontakt-label">Sprechzeiten</span>
+            <span class="kontakt-value">Montag – Donnerstag 09:00 – 18:00<br>Freitag 09:00 – 14:00<br>Termine nach Vereinbarung</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="wordmark">Kirsten Egerer.</div>
+      </div>
+      <div class="footer-meta">
+        Praxis · Mainz<br>
+        Approbierte Psychologische Psychotherapeutin<br>
+        Schwerpunkt Kinderwunsch &amp; Reproduktionsmedizin
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 · Kirsten Egerer</span>
+      <ul class="footer-links">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Burger-Menü
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll-Reveal für Bildplatzhalter
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
