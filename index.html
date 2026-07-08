@@ -767,6 +767,17 @@ header {
   color: var(--accent-deep);
   margin-top: 8px;
 }
+.form-error {
+  display: none;
+  background: #F6E9E4;
+  border: 1px solid #C9A093;
+  border-radius: 4px;
+  padding: 20px 24px;
+  font-size: 14.5px;
+  color: #7A3B2C;
+  margin-top: 8px;
+}
+.form-error a { color: inherit; text-decoration: underline; }
 .kontakt-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -1198,19 +1209,13 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
       </div>
     </div>
 
-    <div class="kosten-wrap">
+    <div class="kosten-wrap" style="max-width:62ch; grid-template-columns:1fr;">
       <div>
         <h3>Kosten &amp; Abrechnung</h3>
         <p>Eine Abrechnung über die gesetzlichen Krankenkassen ist derzeit nicht möglich. Ich arbeite ausschließlich mit Selbstzahlern sowie Privatversicherten.</p>
         <p>Die Kosten richten sich nach der Gebührenordnung für Psychotherapeuten (GOP). Vor Beginn der Behandlung werden die Kosten transparent mit Ihnen besprochen.</p>
         <p>Je nach individueller Versicherungssituation und bei Vorliegen einer psychischen Diagnose übernehmen private Krankenversicherungen die Kosten in der Regel ganz oder anteilig.</p>
       </div>
-      <table class="kosten-table">
-        <tr><td>Telefonisches Vorgespräch (ca. 15 min)</td><td>kostenfrei</td></tr>
-        <tr><td>Einzelsitzung (50 min)</td><td>nach GOP</td></tr>
-        <tr><td>Sitzung mit Partner*in (50 min)</td><td>nach GOP</td></tr>
-        <tr><td>Online-Sitzung (50 min)</td><td>nach GOP</td></tr>
-      </table>
     </div>
 
     <div style="margin-top:48px; padding-top:48px; border-top:1px solid var(--line); max-width:62ch;">
@@ -1235,7 +1240,7 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
         <p>Sie können mich per E-Mail oder über das Kontaktformular erreichen. Ich freue mich über Ihre Nachricht.</p>
 
         <!-- FORMSPREE: Beim ersten Absenden kommt eine Bestätigungs-E-Mail an psychotherapie-egerer@gmx.de — einmal klicken, dann ist das Formular aktiv -->
-        <form class="kontakt-form" id="kontaktForm" action="https://formspree.io/psychotherapie-egerer@gmx.de" method="POST">
+        <form class="kontakt-form" id="kontaktForm" action="https://formspree.io/f/xjgqdapb" method="POST">
           <input type="hidden" name="_subject" value="Neue Kontaktanfrage — kirsten-egerer.de">
           <input type="hidden" name="_language" value="de">
           <input type="hidden" name="_replyto" id="_replyto">
@@ -1262,6 +1267,9 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
         <div class="form-success" id="formSuccess">
           Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.
         </div>
+        <div class="form-error" id="formError" style="display:none;">
+          Es gab leider ein Problem beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an <a href="mailto:psychotherapie-egerer@gmx.de">psychotherapie-egerer@gmx.de</a>.
+        </div>
       </div>
       <ul class="kontakt-info">
         <li>
@@ -1274,7 +1282,7 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
         </li>
         <li>
           <span class="kontakt-label">Sprechzeiten</span>
-          <span class="kontakt-value">Montag – Donnerstag 09:00 – 18:00<br>Freitag 09:00 – 14:00<br>Termine nach Vereinbarung</span>
+          <span class="kontakt-value">Termine nach Vereinbarung</span>
         </li>
       </ul>
     </div>
@@ -1326,9 +1334,11 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
   // Kontaktformular Erfolgsanzeige
   const form = document.getElementById('kontaktForm');
   const success = document.getElementById('formSuccess');
+  const errorBox = document.getElementById('formError');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (errorBox) errorBox.style.display = 'none';
       // _replyto mit Absender-E-Mail füllen
       const emailField = form.querySelector('input[name="email"]');
       const replyto = document.getElementById('_replyto');
@@ -1343,9 +1353,13 @@ footer .wordmark { color: var(--paper); font-size: clamp(28px, 3vw, 38px); font-
         if (res.ok) {
           form.style.display = 'none';
           success.style.display = 'block';
+        } else {
+          console.error('Formspree-Fehler:', res.status, await res.text());
+          if (errorBox) errorBox.style.display = 'block';
         }
       } catch(err) {
-        form.submit();
+        console.error('Netzwerkfehler beim Senden:', err);
+        if (errorBox) errorBox.style.display = 'block';
       }
     });
   }
